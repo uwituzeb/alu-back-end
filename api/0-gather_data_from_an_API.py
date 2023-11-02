@@ -10,10 +10,9 @@ def todo(userid):
 
     tasks = requests.get(
         f'https://jsonplaceholder.typicode.com/users/{userid}/todos').json()
-    tasksDone = [f'\t {dic.get('title')}\n' for dic in tasks if dic.get('completed')]
+    tasksDone = [f'\t {dic.get("title")}\n' for dic in tasks if dic.get('completed')]
     if name and tasks:
-        print(f"Employee {name} is done with tasks({len(tasksDone)}/{len(tasks)}):"
-              (name, len(tasksDone), len(tasks)))
+        print(f"Employee {name} is done with tasks({len(tasksDone)}/{len(tasks)}):")
         print(''.join(tasksDone), end='')
 
 
