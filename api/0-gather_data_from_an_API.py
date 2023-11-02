@@ -6,15 +6,13 @@ from sys import argv
 
 def todo(userid):
     name = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}'.format(
-            userid)).json().get('name')
+        f'https://jsonplaceholder.typicode.com/users/{userid}').json().get('name')
+
     tasks = requests.get(
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
-            userid)).json()
-    tasksDone = ['\t {}\n'.format(dic.get('title')) for dic in tasks
-                 if dic.get('completed')]
+        f'https://jsonplaceholder.typicode.com/users/{userid}/todos').json()
+    tasksDone = [f'\t {dic.get('title')}\n' for dic in tasks if dic.get('completed')]
     if name and tasks:
-        print("Employee {} is done with tasks({}/{}):".format
+        print(f"Employee {name} is done with tasks({len(tasksDone)}/{len(tasks)}):"
               (name, len(tasksDone), len(tasks)))
         print(''.join(tasksDone), end='')
 
