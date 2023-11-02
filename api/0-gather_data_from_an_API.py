@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-
+"""gets api"""
 import requests
 from sys import argv
 
 
 def todo(userid):
+    """doc stringed"""
     name = requests.get(
-        f'https://jsonplaceholder.typicode.com/users/{userid}').json().get('name')
-
+        'https://jsonplaceholder.typicode.com/users/{}'.format(
+            userid)).json().get('name')
     tasks = requests.get(
-        f'https://jsonplaceholder.typicode.com/users/{userid}/todos').json()
-    tasksDone = [f'\t {dic.get("title")}\n' for dic in tasks if dic.get('completed')]
+        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
+            userid)).json()
+    tasksDone = ['\t {}\n'.format(dic.get('title')) for dic in tasks
+                 if dic.get('completed')]
     if name and tasks:
-        print(f"Employee {name} is done with tasks({len(tasksDone)}/{len(tasks)}):")
+        print("Employee {} is done with tasks({}/{}):".format
+              (name, len(tasksDone), len(tasks)))
         print(''.join(tasksDone), end='')
 
 
