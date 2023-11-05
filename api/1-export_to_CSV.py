@@ -22,3 +22,4 @@ def cvsWrite(user):
 
 if __name__ == "__main__":
     cvsWrite(argv[1])
+    
