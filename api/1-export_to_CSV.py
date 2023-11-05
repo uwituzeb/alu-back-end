@@ -4,7 +4,6 @@ import csv
 from requests import get
 from sys import argv
 
-
 def cvsWrite(user):
     """writes to csv"""
     data = get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(
@@ -19,6 +18,6 @@ def cvsWrite(user):
         cwrite.writerow(lined)
     employ_data.close()
 
-
 if __name__ == "__main__":
     cvsWrite(argv[1])
+    

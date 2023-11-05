@@ -4,7 +4,6 @@ import json
 from requests import get
 from sys import argv
 
-
 def jsonWrite():
     """writes to csv"""
     data = get('https://jsonplaceholder.typicode.com/users').json()
@@ -20,7 +19,6 @@ def jsonWrite():
         dumped[person[0]] = ordered
     with open('todo_all_employees.json', 'w') as f:
         json.dump(dumped, f)
-
 
 if __name__ == "__main__":
     jsonWrite()
