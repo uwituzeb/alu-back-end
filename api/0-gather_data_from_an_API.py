@@ -3,6 +3,7 @@
 import requests
 from sys import argv
 
+
 def todo(userid):
     """doc stringed"""
     name = requests.get(
@@ -17,7 +18,7 @@ def todo(userid):
         print("Employee {} is done with tasks({}/{}):".format
               (name, len(tasksDone), len(tasks)))
         print(''.join(tasksDone), end='')
-        
+
 if __name__ == "__main__":
     if len(argv) == 2:
         todo(int(argv[1]))

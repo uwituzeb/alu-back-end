@@ -4,6 +4,7 @@ import json
 from requests import get
 from sys import argv
 
+
 def jsonWrite(user):
     """writes to csv"""
     data = get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(
