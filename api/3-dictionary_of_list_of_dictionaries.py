@@ -24,4 +24,3 @@ def jsonWrite():
 
 if __name__ == "__main__":
     jsonWrite()
-    
