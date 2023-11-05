@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# csv exported
+"""gets api and write to json"""
 import json
 from requests import get
 from sys import argv

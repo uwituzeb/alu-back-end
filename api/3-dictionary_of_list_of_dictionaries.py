@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# csv exported
+"""access REST api"""
 import json
 from requests import get
 from sys import argv
